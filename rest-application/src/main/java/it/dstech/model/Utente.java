@@ -1,10 +1,14 @@
 package it.dstech.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.springframework.lang.Nullable;
 
@@ -26,6 +30,9 @@ public class Utente {
 	private String username;
 	
 	private String password;
+	
+	@OneToMany(fetch = FetchType.EAGER)
+	private List<Message> listMessage;
 
 	public Long getId() {
 		return id;

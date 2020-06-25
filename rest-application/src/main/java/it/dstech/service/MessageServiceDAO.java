@@ -4,7 +4,7 @@ import java.util.List;
 
 import it.dstech.model.Message;
 
-public interface MessageService {
+public interface MessageServiceDAO {
 
 	public Message sendMessage();
 

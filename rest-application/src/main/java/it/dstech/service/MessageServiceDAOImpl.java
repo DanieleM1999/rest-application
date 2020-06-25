@@ -9,7 +9,7 @@ import it.dstech.model.Message;
 import it.dstech.repository.MessageRepository;
 
 @Service
-public class MessageServiceImpl implements MessageService {
+public class MessageServiceDAOImpl implements MessageServiceDAO {
 	
 	@Autowired
 	private MessageRepository messageRepos;
@@ -18,7 +18,6 @@ public class MessageServiceImpl implements MessageService {
 	public Message sendMessage() {
 		
 		Message message = new Message();
-
 		return message;
 	}
 	
