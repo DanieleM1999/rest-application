@@ -34,6 +34,9 @@ public class Utente {
 	@OneToMany(fetch = FetchType.EAGER)
 	private List<Message> listMessage;
 
+	public Utente() {
+	}
+
 	public Long getId() {
 		return id;
 	}

@@ -13,16 +13,29 @@ public class MessageServiceDAOImpl implements MessageServiceDAO {
 	
 	@Autowired
 	private MessageRepository messageRepos;
-	
+
 	@Override
-	public Message sendMessage() {
-		
-		Message message = new Message();
-		return message;
+	public boolean add(Message m) {
+		Message  newMessage = messageRepos.save(m);
+		return newMessage != null;
 	}
-	
+
+
+	@Override
+	public List<Message> findByUtenteOrderByDataDesc(Message m) {
+		return null;
+	}
+
+
 	@Override
 	public List<Message> findAll() {
 		return messageRepos.findAll();
+	}
+
+
+	@Override
+	public void delete(Message m) {
+		messageRepos.delete(m);
+		
 	}
 }

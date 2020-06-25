@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -16,18 +17,19 @@ public class Message {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
+	@OneToOne
 	private String userSend;
 
+	@OneToOne
 	private String userRecive;
 	
 	private String testo;
 	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd@HH:mm:ss.SSSZ", locale = "it_IT")
 	private LocalDateTime timestamp;
 	
-	 @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	    public LocalDateTime getTimestamp() {
-	        return timestamp;
-	    }
+	public Message() {
+	}
 
 	public Long getId() {
 		return id;

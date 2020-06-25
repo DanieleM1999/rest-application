@@ -17,17 +17,17 @@ public class UtenteController {
 	@Autowired
 	private UtenteServiceDAO utenteService;
 
-	@RequestMapping("/")
+	@RequestMapping("/utente")
 	public List<Utente> getAllPeople() {
 		return utenteService.findAll();
 	}
 	
-	@RequestMapping(value = ("/"), method = RequestMethod.POST)
+	@RequestMapping(value = ("/utente"), method = RequestMethod.POST)
 	public boolean addNewUtente(@RequestBody Utente utente) {
 		return utenteService.add(utente);
 	}
 	
-	@RequestMapping(value = ("/"), method = RequestMethod.DELETE)
+	@RequestMapping(value = ("/utente"), method = RequestMethod.DELETE)
 	public boolean removeUtente(@RequestBody Utente utente) {
 		utenteService.remove(utente);
 		return true;
