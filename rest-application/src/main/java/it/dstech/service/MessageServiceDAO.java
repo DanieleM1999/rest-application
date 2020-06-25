@@ -3,6 +3,7 @@ package it.dstech.service;
 import java.util.List;
 
 import it.dstech.model.Message;
+import it.dstech.model.Utente;
 
 public interface MessageServiceDAO {
 
@@ -10,8 +11,9 @@ public interface MessageServiceDAO {
 	
 	List<Message> findAll();
 	
-	List<Message> findByUtenteOrderByDataDesc(Message m);
-	
 	void delete(Message m);
 
+	List<Message> showRecivedMessage(Utente userSend);
+
+	List<Message> showSentMessage(Utente userSend);
 }

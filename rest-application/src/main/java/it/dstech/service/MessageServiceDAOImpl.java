@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.dstech.model.Message;
+import it.dstech.model.Utente;
 import it.dstech.repository.MessageRepository;
 
 @Service
@@ -22,12 +23,6 @@ public class MessageServiceDAOImpl implements MessageServiceDAO {
 
 
 	@Override
-	public List<Message> findByUtenteOrderByDataDesc(Message m) {
-		return null;
-	}
-
-
-	@Override
 	public List<Message> findAll() {
 		return messageRepos.findAll();
 	}
@@ -37,5 +32,15 @@ public class MessageServiceDAOImpl implements MessageServiceDAO {
 	public void delete(Message m) {
 		messageRepos.delete(m);
 		
+	}
+	
+	@Override
+	public List<Message> showRecivedMessage(Utente userSend){
+		return (List<Message>) messageRepos.findByUtenteOrderByTimestampAsc("userSend");
+	}
+	
+	@Override
+	public List<Message> showSentMessage(Utente userRecive){
+		return (List<Message>) messageRepos.findByUtenteOrderByTimestampDesc("userRecives");
 	}
 }
