@@ -6,4 +6,5 @@ import it.dstech.model.Utente;
 
 public interface UtenteRepository extends JpaRepository<Utente, Long>{
 
+	
 }

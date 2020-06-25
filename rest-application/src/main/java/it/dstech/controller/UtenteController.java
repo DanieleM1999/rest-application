@@ -12,7 +12,7 @@ import it.dstech.model.Utente;
 import it.dstech.service.UtenteServiceDAO;
 
 @RestController
-public class RestControllerExample {
+public class UtenteController {
 
 	@Autowired
 	private UtenteServiceDAO utenteService;
@@ -28,7 +28,7 @@ public class RestControllerExample {
 	}
 	
 	@RequestMapping(value = ("/"), method = RequestMethod.DELETE)
-	public boolean removePersona(@RequestBody Utente utente) {
+	public boolean removeUtente(@RequestBody Utente utente) {
 		utenteService.remove(utente);
 		return true;
 	}
